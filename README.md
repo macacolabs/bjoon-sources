@@ -1,1 +1,1 @@
-# JUST Do it!!😎
+# Just Do it!!😎
