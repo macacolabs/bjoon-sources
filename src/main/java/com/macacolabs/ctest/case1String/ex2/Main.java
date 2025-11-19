@@ -13,10 +13,9 @@ public class Main {
 
         try {
             String str = br.readLine();
-            String input = br.readLine();
 
-            int num = Integer.parseInt(input);
-            String result = str.substring(num-1,num);
+            int num = Integer.parseInt(br.readLine());
+            String result = str.substring(num - 1, num);
             System.out.println(result);
         } catch (IOException e) {
             throw new RuntimeException(e);
