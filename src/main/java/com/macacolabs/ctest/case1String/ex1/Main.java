@@ -1,4 +1,4 @@
-package com.macacolabs.ctest.case1;
+package com.macacolabs.ctest.case1String.ex1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
