@@ -1,4 +1,4 @@
-package com.macacolabs.ctest.mathmatic;
+package com.macacolabs.ctest.mathmatic.ex2;
 // https://www.acmicpc.net/problem/11005
 
 import java.io.BufferedReader;
