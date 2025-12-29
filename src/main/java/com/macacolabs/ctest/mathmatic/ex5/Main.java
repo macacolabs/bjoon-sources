@@ -22,7 +22,8 @@ public class Main {
                 range = range + (6 * count);
                 count++;
             }
+            System.out.println(count);
         }
-        System.out.println(count);
+
     }
 }
