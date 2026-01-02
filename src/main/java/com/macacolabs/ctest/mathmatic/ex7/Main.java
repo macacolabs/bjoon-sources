@@ -1,5 +1,5 @@
 package com.macacolabs.ctest.mathmatic.ex7;
-
+// https://www.acmicpc.net/problem/5086
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
