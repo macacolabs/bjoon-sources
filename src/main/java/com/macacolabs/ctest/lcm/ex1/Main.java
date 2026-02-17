@@ -33,7 +33,7 @@ public class Main {
     }
 
     public static int fgcd(int a, int b) {
-        if(b != 0) {
+        while(b != 0) {
             int temp = a % b; // 나머지 먼저 구현
             a = b;            // b와 a의 자라바꿈
             b = temp;         // 나머지를 b로옮김
