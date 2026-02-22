@@ -16,20 +16,23 @@ public class Main {
         int M = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());
 
+        boolean[] isNotPrime = new boolean[N + 1];
+        isNotPrime[0] = isNotPrime[1] = true;
+
+        for(int i = 2; i * i <= N; i++) {
+            if(!isNotPrime[i]) {
+                for(int j = i * i; j <= N; j += i) {
+                    isNotPrime[j] = true;
+                }
+            }
+        }
+
         StringBuilder sb = new StringBuilder();
-        for(int i = M; i <= N; i++) {
-            if(isPrime(i)) {
+        for (int i = M; i <= N; i++) {
+            if (!isNotPrime[i]) {
                 sb.append(i).append("\n");
             }
         }
-        System.out.println(sb);
-    }
-
-    public static boolean isPrime(int num) {
-        if(num < 2) return false;
-        for(int i = 2; i * i <= num; i++) {
-            if(num % i == 0) return false;
-        }
-        return true;
+        System.out.print(sb);
     }
 }
