@@ -1,29 +1,43 @@
 package com.macacolabs.ctest.dp.ex2;
-// https://www.acmicpc.net/problem/1904
+// https://www.acmicpc.net/problem/9184
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 
+    static int[][][] memo = new int[21][21][21];
+
     public static void main(String[] args) throws IOException {
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
 
-        if(N == 1) {
-            System.out.println(1);
-            return;
+        while (true) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
+
+            if (a == -1 && b == -1 && c == -1) break;
+
+            System.out.printf("w(%d, %d, %d) = %d\n", a, b, c, w(a, b, c));
+        }
+    }
+
+    public static int w(int a, int b, int c) {
+
+        if (a <= 0 || b <= 0 || c <= 0) return 1;
+        if (a > 20 || b > 20 || c > 20) return w(20, 20, 20);
+
+        if (memo[a][b][c] != 0) return memo[a][b][c];
+
+        if (a < b && b < c) {
+            memo[a][b][c] = w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c);
+        } else {
+            memo[a][b][c] = w(a - 1, b, c) + w(a - 1, b - 1, c) + w(a - 1, b, c - 1) - w(a - 1, b - 1, c - 1);
         }
 
-        int[] dp = new int[N + 1];
-        dp[1] = 1;
-        dp[2] = 2;
-        for(int i = 3; i <= N; i++) {
-
-            dp[i] = (dp[i - 1] + dp[i - 2]) % 15746;
-        }
-
-        System.out.println(dp[N]);
-
+        return memo[a][b][c];
     }
 }

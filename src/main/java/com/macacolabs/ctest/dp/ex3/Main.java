@@ -1,6 +1,5 @@
 package com.macacolabs.ctest.dp.ex3;
-
-// https://www.acmicpc.net/problem/9461
+// https://www.acmicpc.net/problem/1904
 
 import java.io.*;
 
@@ -9,24 +8,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
 
-        int T = Integer.parseInt(br.readLine());
+        if(N == 1) {
+            System.out.println(1);
+            return;
+        }
 
-        long[] dp = new long[101];
-
+        int[] dp = new int[N + 1];
         dp[1] = 1;
-        dp[2] = 1;
-        dp[3] = 1;
-        dp[4] = 2;
-        dp[5] = 2;
+        dp[2] = 2;
+        for(int i = 3; i <= N; i++) {
 
-        for(int i = 6; i <= 100; i++) {
-
-            dp[i] = dp[i - 1] + dp[i - 5];
+            dp[i] = (dp[i - 1] + dp[i - 2]) % 15746;
         }
 
-        for(int i = 1; i <= T; i++) {
-            System.out.println(dp[Integer.parseInt(br.readLine())]);
-        }
+        System.out.println(dp[N]);
+
     }
 }
