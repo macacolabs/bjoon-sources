@@ -1,4 +1,4 @@
-package com.macacolabs.ctest.dp;
+package com.macacolabs.ctest.dp.ex7;
 
 // https://www.acmicpc.net/problem/1932
 
