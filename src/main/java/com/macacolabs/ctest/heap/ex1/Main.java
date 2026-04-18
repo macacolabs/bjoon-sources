@@ -15,7 +15,7 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
 
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        StringBuilder sb = new StringBuilder(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
         for(int i = 0; i < N; i++) {
             int x = Integer.parseInt(br.readLine());
